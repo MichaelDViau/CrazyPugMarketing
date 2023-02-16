@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Crazy Pug | Web Development & Marketing Solution</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Crazy Pug - Web Development & Marketing Solution">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0; 
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+  <!-- Body -->
+  <body>
+    
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+     <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="index.html" class="navbar-brand pe-3">
+            <img src="assets/img/logo.png" width="47" alt="Crazy Pug Logo">
+            Crazy Pug
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Our Services</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="SocialMediaManagement.html" class="dropdown-item">Social Media Management</a></li>
+                    <li><a href="Blog&CopyWriting.html" class="dropdown-item">Blog & Copywriting</a></li>
+                    <li><a href="SeoServices.html" class="dropdown-item">SEO & Keyword Optimization</a></li>
+                    <li><a href="Website&App.html" class="dropdown-item">Web Site & Application</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="AboutUS.html" class="nav-link">About US</a>
+                </li>
+                <li class="nav-item">
+                  <a href="ContactUS.html" class="nav-link">Contact US</a>
+                </li>
+                <li class="nav-item">
+                  <a href="Blog.html" class="nav-link">Blog</a>
+                </li>
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="https://themes.getbootstrap.com/product/silicon-business-technology-template-ui-kit/" class="btn btn-primary w-100" target="_blank" rel="noopener">
+                <i class="bx bx-cart fs-4 lh-1 me-1"></i>
+                &nbsp;Buy now
+              </a>
+            </div>      
+          </div>
+          <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div>
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          </a>
+        </div>
+      </header>
+
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index.html"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item"><a href="Blog.html">Blog</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Post 01</li>
+        </ol>
+      </nav>
+
+    <!-- Post title + Meta  -->
+    <section class="container mt-4 pt-lg-2 pb-3">
+      <h2 class="pb-3" style="max-width: 970px;">Welcome to Crazy Pug: Your New Online Solution for Social Media, Web Development, and SEO Services</h2>
+      <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-3">
+        <div class="d-flex align-items-center flex-wrap text-muted mb-md-0 mb-4">
+          <div class="fs-xs border-end pe-3 me-3 mb-2">
+            <span class="badge bg-faded-primary text-primary fs-base">Crazy Pug Post</span>
+          </div>
+          <div class="fs-sm pe-3 me-3 mb-2">Posted on the 02/16/2022 14:20</div>
+        </div>
+        <div class="d-flex align-items-center position-relative ps-md-3 pe-lg-5 mb-2">
+          <img src="https://media.licdn.com/dms/image/D4E03AQGdt0sTyKaK5w/profile-displayphoto-shrink_800_800/0/1674486965013?e=1681948800&v=beta&t=e9ixEVQA9YpveLff8M5B4GVg0mLQhMkr6sMh0kIXrk8" class="rounded-circle" width="60" alt="Avatar">
+          <div class="ps-3">
+            <h6 class="mb-1">Writted By:</h6>
+            <a href="#" class="fw-semibold stretched-link">Michael D</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Post content + Sharing -->
+    <section class="container mb-5 pt-4 pb-2 py-mg-4">
+      <div class="row gy-4">
+
+        <!-- Content -->
+        <div>
+          <h3>Introducing Crazy Pug: The Ultimate Solution for Small Business Owners and Entrepreneurs</h3>
+          <p>As a small business owner or entrepreneur, you know that having a strong online presence is crucial to reaching new customers and growing your business. However, managing your online presence can be time-consuming, complex, and overwhelming. That's why Crazy Pug is here to help.</p>
+          <p>Crazy Pug is an online company solution that offers a wide range of services to help small businesses and entrepreneurs succeed in the digital space. Whether you need help with social media, web development, or search engine optimization (SEO), Crazy Pug has you covered.</p>
+          <h4>Social Media Management</h4>
+          <p>Crazy Pug can help you create and manage social media campaigns across multiple platforms, including Facebook, Instagram, Twitter, and more. Our team of social media experts can help you develop a social media strategy that fits your business goals and target audience, and create content that engages and converts.</p>
+          <h4>Web Development and Optimization</h4>
+          <p>At Crazy Pug, we understand the importance of having a website that is not only visually appealing but also optimized for search engines. Our web development team can create a custom website that reflects your brand, engages your customers, and ranks high on search engines like Google. We also offer website optimization services, including mobile optimization, page speed optimization, and more, to ensure that your website is easy to navigate and user-friendly.</p>
+          <h4>Search Engine Optimization (SEO)</h4>
+          <p>Search engine optimization (SEO) is the process of optimizing your website and online content to rank higher on search engines like Google. The higher your website ranks, the more likely it is that people will find you when searching for products or services related to your business. Crazy Pug offers a range of SEO services, including keyword research, on-page optimization, link building, and more, to help you achieve higher rankings and attract more organic traffic to your website.</p>
+          <h4>Why Choose Crazy Pug?</h4>
+          <p>Crazy Pug is committed to providing exceptional service and delivering results that exceed our clients' expectations. Our team of experts has years of experience in social media, web development, and SEO, and we are passionate about helping small businesses and entrepreneurs grow and succeed in the digital space.</p>
+          <p>We also offer flexible pricing options to fit any budget, so you can get the help you need without breaking the bank. Whether you need ongoing support or a one-time project, Crazy Pug has a solution that fits your needs.</p>
+          <p>In addition, Crazy Pug offers services in multiple languages, including English, French, and Spanish, making it easier for businesses in North America to access our services and get the support they need to succeed online.</p>
+          <h4>Conclusion</h4>
+          <p>If you're a small business owner or entrepreneur looking to improve your online presence, Crazy Pug is here to help. We offer a range of services to fit your specific needs and goals, and we are committed to providing exceptional service and delivering results that exceed your expectations. Contact us today to learn more and see how we can help you take your online presence to the next level.</p>
+        </div>
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4 pb-lg-5 mt-2 mt-md-0">
+      <div class="container pt-lg-4">
+        <div class="row pb-5">
+          <div class="col-lg-4 col-md-6">
+            <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+              <img src="assets/img/logo.png" width="47" alt="Crazy Pug Logo">
+              Crazy Pug
+            </div>
+            <p class="fs-sm pb-lg-3 mb-4">Join the Digital Revolution with Crazy Pug - Let us fuel your online growth with our innovative social media marketing, advanced SEO techniques, breathtaking website design, and seamless app development.</p>
+
+          </div>
+          <div class="col-xl-6 col-lg-7 col-md-5 offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+            <div id="footer-links" class="row">
+              <div class="col-lg-4">
+                <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                    <li class="nav-item"><a href="index.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Home</a></li>
+                    <li class="nav-item"><a href="AboutUS.html" class="nav-link d-inline-block px-0 pt-1 pb-2">About US</a></li>
+                    <li class="nav-item"><a href="AboutUS.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact US</a></li>
+                    <li class="nav-item"><a href="Blog.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Blog</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-3">
+                <div id="social-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">LinkedIn</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Instagram</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Facebook</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
+                <h6 class="mb-2">Contact Us</h6>
+                <a href="mailto:info@crazypugmarketing.com" class="fw-medium">info@crazypugmarketing.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+          &copy; 2023 All rights reserved.  
+          <a class="nav-link d-inline-block p-0" target="_blank" rel="noopener">Crazy Pug | Web Development & Marketing Solution</a>
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
+    <script src="assets/vendor/lightgallery/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="assets/vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js"></script>
+    <script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
